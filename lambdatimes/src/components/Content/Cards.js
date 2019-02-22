@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { arrayOf, shape, string } from 'prop-types';
 import Card from './Card';
 
 const Cards = props => {
@@ -20,6 +21,12 @@ const Cards = props => {
   )
 }
 
-// Make sure you include prop types for all of your incoming props
-
+Cards.propTypes = {
+  cards: arrayOf(shape({
+    tab: string,
+    img: string,
+    headline: string,
+    author: string
+  })).isRequired
+}
 export default Cards;
