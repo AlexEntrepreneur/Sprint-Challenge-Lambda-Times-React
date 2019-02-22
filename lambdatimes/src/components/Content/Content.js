@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Tabs from './Tabs';
 import Cards from './Cards';
 
@@ -32,19 +31,13 @@ export default class Content extends Component {
   };
 
   filterCards = () => {
-    /* Right now this function only returns the cards on state.
-      We're going to make this function more dynamic
-      by using it to filter out our cards for when a tab is selcted
+    if (this.state.selected === 'all') {
+      return this.state.cards;
+    }
 
-      Notice that we're passing this function to our <Cards /> component below.
-      This function returns an array of cards, so we can just pass it down as such.
+    const filteredCards = this.state.cards.filter(card => this.state.selected === card.tab);
 
-      Your algorithim for the logic here is as follows:
-        - if the selected tab is 'all' it should return all
-          of the items from cardData.
-        - else, it should only return those cards whose 'tab' matched this.state.selected.
-    */
-    return this.state.cards;
+    return filteredCards;
   };
 
   render() {
