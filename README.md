@@ -28,37 +28,50 @@ Look through the application code. If you have the old Lambda Times (Applied Jav
 
 ## Self-Study/Essay Questions
 
-- [ ] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript.
-- [ ] Describe a life-cycle event in React?
-- [ ] Explain the details of a Higher Order Component?
-- [ ] What are three different ways to style components in React? Explain some of the benefits of each.
+- [x] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript.
+* PropTypes are validation checks on data that is passed to components. They are used to prevent unpredictable behaviour in our logic as a result of the wrong `type` of data being passed to it.
+
+- [x] Describe a life-cycle event in React?
+* The "updating" phase of a React component's life is triggered whenever a component receives new props or its state changes. A derived state is calculated from the new props and the `shouldComponentUpdate` callback is fired. If `shouldComponentUpdate` returns true, then the component goes through the render phase, else the lifecycle process halts. React then updates the DOM and then fires the `componentDidUpdate` callback method.
+
+- [x] Explain the details of a Higher Order Component?
+* A higher order component (HOC) is a component that extends the capability of an existing component without modifying the original component. It is a function that takes the original component as an argument and then returns the new component. Inside the new component we implement our new functionality and then return an instantiation of the component that was passed to the HOC, passing any props to the instantiation. To retain our original props, we pass `{...this.props}` into the instantiation also.
+
+- [x] What are three different ways to style components in React? Explain some of the benefits of each.
+* Inline Objects: We define our styles in an object and then pass them to the `style` attribute of the component.
+    * Pros: Reusable styles, CSS in JS, Similar to React Native syntax. Cons: INLINE CSS! HTML element tree becomes messy/crowded.
+* Modular CSS Files: We can use separate SCSS/LESS files and keep the styles close to our components.
+    * Pros: Reusable styles, Modularity of styles, Familiar syntax (easy refactoring). Cons: Polluting global CSS namespace, Other global styles could overwrite component styles, Managing preprocessor files.
+* Styled Components: We can create modular styles directly in our JSX and reuse predefined styled components across the app.
+    * Pros: Cross-app component sharing (reusable functionality + styles), Maintainable (styles are together with functionality), Dynamically generated class names (no cascade clashes), Encourages atomic design. Cons: Project initial setup (defining reusable styles first), Difficult to refactor (separating from existing stylesheets can prove difficult), Dynamic class names are not semantic.
+
 
 ## Project Setup
 
 Follow these steps to set up your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-- [ ] From within the `lambdatimes` folder run `yarn` and then `yarn start`. This will open your locally hosted application in your browser. Once you are ready move onto the next steps.
-- [ ] Inside the `Content` folder you will find all 5 components that make up the content of the application. The flow goes like this: `Content > Tabs > Tab` and `Content > Cards > Card`. Follow the directions in the `Content` component to get your data ready.
+- [x] Create a forked copy of this project.
+- [x] Add your project manager as collaborator on Github.
+- [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
+- [x] From within the `lambdatimes` folder run `yarn` and then `yarn start`. This will open your locally hosted application in your browser. Once you are ready move onto the next steps.
+- [x] Inside the `Content` folder you will find all 5 components that make up the content of the application. The flow goes like this: `Content > Tabs > Tab` and `Content > Cards > Card`. Follow the directions in the `Content` component to get your data ready.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your project manager as a reviewer on the pull-request
-- [ ] Your project manager will count the project as complete by merging the branch back into master.
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
+- [x] Add your project manager as a reviewer on the pull-request
+- [x] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Minimum Viable Product
 
-- [ ] Go through the `Tabs`, `Tab`, `Cards`, and `Card` components following the instructions, and passing data and props to get the tabs and cards to appear on the screen.
-- [ ] Once the Tabs and Cards are rendering to the screen complete the `changeSelected` and `filterCards` functions in the `Content` component.
-- [ ] You should now be able to filter cards using your tabs!
-- [ ] Make sure all of your props being passed are validated using PropTypes.
-- [ ] Find the `TopBar` and `Header` components. Convert these two components to Styled Components. You should not have any `className` props when you are finished.
+- [x] Go through the `Tabs`, `Tab`, `Cards`, and `Card` components following the instructions, and passing data and props to get the tabs and cards to appear on the screen.
+- [x] Once the Tabs and Cards are rendering to the screen complete the `changeSelected` and `filterCards` functions in the `Content` component.
+- [x] You should now be able to filter cards using your tabs!
+- [x] Make sure all of your props being passed are validated using PropTypes.
+- [x] Find the `TopBar` and `Header` components. Convert these two components to Styled Components. You should not have any `className` props when you are finished.
 
 ## Stretch Challenge
 
@@ -66,6 +79,6 @@ There are multiple stretch challenges available to you, you may attempt these in
 
 - [ ] Re-factor the app, so that it uses ALL styled components. There should be no `className` props on any component. To truly test this, delete the CSS file.
 
-- [ ] You will find a `Carousel` component in your Content folder. Complete this component, rendering a functional carousel. Add this component between your `Tabs` and `Cards` components within the `Content` component. Added challenge: make it so that there is infinite scroll to the right and the left.
+- [x] You will find a `Carousel` component in your Content folder. Complete this component, rendering a functional carousel. Add this component between your `Tabs` and `Cards` components within the `Content` component. Added challenge: make it so that there is infinite scroll to the right and the left.
 
 - [ ] Add a login and an HOC. Make it so that when a user clicks on the login button at the top, a login modal is shown (Use React-strap). Have a user login, validating the login credentials on the `localStorage`. Add a Higher Order Component that wraps the `Content` component, only allowing it to render once a user has logged in. For more instructions see this README: [React-Insta-Clone: Day III](https://github.com/LambdaSchool/React-Insta-Clone/blob/master/DAY_THREE_README.md#tasks-day-iii)
